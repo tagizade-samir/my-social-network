@@ -1,0 +1,12 @@
+  .item{
+    text-align: center;
+  }
+  .item a{
+    display: block;
+    border: 1px solid coral;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 10px;
+  }

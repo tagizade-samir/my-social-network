@@ -1,0 +1,10 @@
+.header{
+    grid-area: header;
+    background-color: darkcyan;
+  }
+  .back{
+  
+  }
+  .img{
+    max-width: 90px;
+  }

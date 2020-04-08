@@ -1,0 +1,11 @@
+  .item{
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    padding: 10px 0;
+  }
+  .itemImg{
+    max-width: 50px;
+  }
+  .itemText{
+  
+  }

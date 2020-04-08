@@ -1,0 +1,7 @@
+  .list{
+    list-style-type: none;
+    display: grid;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    grid-gap: 10px;
+  }
