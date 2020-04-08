@@ -1,38 +1,122 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.wrapper{
+  max-width: 100%;
+  padding: 0 100px;
+  background-color: gray;
+}
+.wrap-in{
+  max-width: 1500px;
+  margin: 0 auto;
+  background-color: darksalmon;
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  grid-template-columns: 3fr 9fr;
+  grid-template-areas: 'header header'
+                        'nav profile';
+  grid-gap: 10px;
+}
+.header{
+  grid-area: header;
+  background-color: darkcyan;
+}
+.header_img{
+
+}
+.header_img-img{
+  max-width: 90px;
+}
+
+.nav_menu{
+  background-color: darkcyan;
+  grid-area: nav;
+}
+.nav_menu_list{
+  list-style-type: none;
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  grid-gap: 10px;
+}
+.nav_menu_list_item{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav_menu_list_item a{
+  display: block;
+  border: 1px solid coral;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 5px 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.profile{
+  background-color: darkcyan;
+  grid-area: profile;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.profile_bgImage{
+  margin-bottom: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.profile_bgImage-img{
+  max-width: 200px;
+}
+.profile_info{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas: 'profileImg profileDesc';
+}
+.profile_info_img{
+  grid-area: profileImg;
+}
+.profile_info_img-img{
+  max-width: 100px;
+  border: 1px solid coral;
+}
+.profile_info_desc{
+  grid-area: profileDesc;
+}
+.profile_info_desc-title{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.profile_info_desc_text{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 5px;
+}
+.profile_posts{
+  display: grid;
+}
+.profile_posts_head{
+  display: grid;
+}
+.profile_posts_head-title{
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.profile_posts_head_input{
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: 1fr;
+}
+.postInput{
+  max-width: 90%;
+}
+.postBtn{
+  display: block;
+  max-width: 150px;
+  text-transform: uppercase;
+  padding: 5px 0px;
+  background-color: coral;
+  border: none;
+  border-radius: 5px;
 }
