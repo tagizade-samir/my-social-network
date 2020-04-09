@@ -22,6 +22,12 @@ body {
   grid-gap: 10px;
 }
 
-
+.wrapContent{
+  background-color: darkcyan;
+  grid-area: profile;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
 
 

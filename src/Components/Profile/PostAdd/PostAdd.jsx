@@ -9,7 +9,7 @@ const PostAdd = () => {
         </div>
         <form>
           <div className={Classes.headInputWrap}>
-              <input className={Classes.headInput}></input>
+              <textarea className={Classes.headInput}></textarea>
               <button className={Classes.btn}>Send</button>
           </div>
         </form>

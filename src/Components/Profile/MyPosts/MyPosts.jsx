@@ -5,10 +5,10 @@ import Post from './Post/Post.jsx'
 const MyPosts = () => {
     return(
       <div className={Classes.postMain}>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        <Post message='Hello'/>
+        <Post message='world'/>
+        <Post message='That is' />
+        <Post message='nuts!'/>
       </div>
     )
 }

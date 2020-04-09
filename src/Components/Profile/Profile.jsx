@@ -7,7 +7,7 @@ import Back from './Back/Back.jsx'
 
 const Profile = () => {
     return(
-      <div className={Classes.profile}>
+      <div>
         <Back />
         <ProfileInfo />
         <div className={Classes.posts}>
