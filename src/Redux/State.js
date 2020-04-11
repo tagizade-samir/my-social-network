@@ -23,7 +23,21 @@ let State = {
       { id: '3', text: 'You are doing great' },
       { id: '4', text: 'Thanks, that really means a lot' },
     ]
-  } 
+  },
+  nav: {
+    navItems: [
+      {name: 'Pofile', link: 'profile'},
+      {name: 'Dialogs', link: 'dialogs'},
+      {name: 'News', link: 'news'},
+      {name: 'Music', link: 'music'},
+      {name: 'Settings', link: 'settings'},
+    ],
+    navFriends: [
+      {name: 'Saida', id: '2'},
+      {name: 'Farida', id: '3'},
+      {name: 'Eldar', id: '4'},
+    ]
+  }
 }
 
 export default State

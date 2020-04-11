@@ -5,7 +5,7 @@ import Message from './Message/Message.jsx'
 const DialogMessage = (props) => {
 
   let messageElems = props.messages
-    .map((message) => <Message text={message.text} />)
+    .map((message) => <Message text={message.text} /> )
 
   return (
     <div className={Classes.dialogMessage}>

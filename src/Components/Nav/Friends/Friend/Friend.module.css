@@ -1,0 +1,13 @@
+.friend{
+    background-color: coral;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 10px 5px;
+}
+.friendsAvatar{
+    max-width: 50px;
+    border: 1px solid white;
+    border-radius: 50px;
+    background-color: white;
+    padding: 10px;
+}

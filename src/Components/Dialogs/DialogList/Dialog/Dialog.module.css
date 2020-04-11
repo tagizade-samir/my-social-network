@@ -11,3 +11,11 @@
 .dialog a.activeLink{
     color: darkblue;
 }
+.dialog img{
+    max-width: 40px;
+    margin-right: 10px;
+    border: 1px solid coral;
+    padding: 5px;
+    border-radius: 50px;
+    background-color: coral;
+}

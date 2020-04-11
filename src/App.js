@@ -17,7 +17,7 @@ const App = (props) => {
         <div className='wrapper'>
           <div className='wrap-in'>
             <Header />
-            <Nav />
+            <Nav state={props.state.nav} />
             <div className='wrapContent'>
               <Route path='/profile' render={() => <Profile state={props.state.profilePage} />} />
               <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage} />} />

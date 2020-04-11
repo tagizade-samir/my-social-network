@@ -1,7 +1,10 @@
   .item{
     display: grid;
     grid-template-columns: 1fr 10fr;
-    padding: 10px 0;
+    padding: 10px 10px;
+    background-color: coral;
+    margin-bottom: 20px;
+    border-radius: 20px;
   }
   .itemImg{
     max-width: 50px;
