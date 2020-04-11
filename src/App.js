@@ -7,9 +7,9 @@ import Dialogs from './Components/Dialogs/Dialogs.jsx'
 import News from './Components/News/News.jsx'
 import Music from './Components/Music/Music.jsx'
 import Settings from './Components/Settings/Settings.jsx'
-import {Route, BrowserRouter} from 'react-router-dom'
+import { Route, BrowserRouter } from 'react-router-dom'
 
-const App = () => {
+const App = (props) => {
 
   return (
     <BrowserRouter>
@@ -19,11 +19,11 @@ const App = () => {
             <Header />
             <Nav />
             <div className='wrapContent'>
-                <Route path='/profile' component={Profile} />
-                <Route path='/dialogs' component={Dialogs} />
-                <Route path='/news' component={News} />
-                <Route path='/music' component={Music} />
-                <Route path='/settings' component={Settings} />
+              <Route path='/profile' render={() => <Profile state={props.state.profilePage} />} />
+              <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage} />} />
+              <Route path='/news' render={() => <News />} />
+              <Route path='/music' render={() => <Music />} />
+              <Route path='/settings' render={() => <Settings />} />
             </div>
           </div>
         </div>

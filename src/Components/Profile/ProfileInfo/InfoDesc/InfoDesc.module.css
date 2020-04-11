@@ -1,5 +1,6 @@
   .infoDesc{
     grid-area: profileDesc;
+    padding: 0 20px;
   }
   .infoDescTitle{
     font-size: 20px;

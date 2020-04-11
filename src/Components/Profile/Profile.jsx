@@ -1,19 +1,13 @@
 import React from 'react';
 import Classes from './Profile.module.css'
-import MyPosts from './MyPosts/MyPosts.jsx'
-import PostAdd from './PostAdd/PostAdd.jsx'
+import Posts from './Posts/Posts.jsx'
 import ProfileInfo from './ProfileInfo/ProfileInfo.jsx'
-import Back from './Back/Back.jsx'
 
-const Profile = () => {
+const Profile = (props) => {
     return(
       <div>
-        <Back />
         <ProfileInfo />
-        <div className={Classes.posts}>
-          <PostAdd />
-          <MyPosts />
-        </div>
+        <Posts posts={props.state.postsData} />
       </div>
     )
 }

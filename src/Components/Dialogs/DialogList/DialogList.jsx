@@ -3,15 +3,13 @@ import Classes from './DialogList.module.css';
 import Dialog from './Dialog/Dialog.jsx';
 
 const DialogList = (props) => {
-    return(
+
+    let dialogsElems = props.dialogs
+        .map((dialog) => <Dialog name={dialog.name} id={dialog.id} />)
+
+    return (
         <div className={Classes.dialogList}>
-            <Dialog name='Samir' link='dialogs/samirChat'/>
-            <Dialog name='Saida' link='dialogs/saidaChat'/>
-            <Dialog name='Farida' link='dialogs/faridaChat'/>
-            <Dialog name='Eldar' link='dialogs/eldarChat'/>
-            <Dialog name='Guney' link='dialogs/guneyChat'/>
-            <Dialog name='Izzet' link='dialogs/izzetChat'/>
-            <Dialog name='Roza' link='dialogs/rozaChat'/>
+            {dialogsElems}
         </div>
     )
 }

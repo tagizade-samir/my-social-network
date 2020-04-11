@@ -2,8 +2,8 @@ import React from 'react';
 import Classes from './InfoDesc.module.css'
 
 const InfoDesc = (props) => {
-    return(
-      <div className={Classes.infoDesc}>
+  return (
+    <div className={Classes.infoDesc}>
       <div className={Classes.infoDescTitle}>
         Samir T.
       </div>
@@ -14,7 +14,7 @@ const InfoDesc = (props) => {
         <div className={Classes.inofItem}>WebSite: {props.website}</div>
       </div>
     </div>
-    )
+  )
 }
 
 export default InfoDesc

@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import State from './Redux/State.js'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App state={State} />
   </React.StrictMode>,
   document.getElementById('root')
 );

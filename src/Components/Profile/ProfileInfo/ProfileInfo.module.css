@@ -1,7 +1,11 @@
+  .description{
+    padding: 0 20px;
+  }
   .info{
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-areas: 'profileImg profileDesc';
+    padding: 0 20px;
   }
   .infoImgWrap{
     grid-area: profileImg;
