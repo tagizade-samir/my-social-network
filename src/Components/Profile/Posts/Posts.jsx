@@ -6,8 +6,11 @@ import PostAdd from './PostAdd/PostAdd.jsx'
 const Posts = (props) => {
     return(
         <div className={Classes.posts}>
-          <PostAdd />
-          <MyPosts posts={props.posts} />
+          <PostAdd
+            newPostText={props.posts.newPostText}
+            addPost={props.addPost}
+            updateNewPostText={props.updateNewPostText} />
+          <MyPosts posts={props.posts.postsData} />
         </div>
     )
 }

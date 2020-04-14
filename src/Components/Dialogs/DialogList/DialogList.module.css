@@ -1,4 +1,5 @@
 .dialogList{
     display: grid;
     grid-template-rows: auto;
+    grid-area: dialogList;
 }

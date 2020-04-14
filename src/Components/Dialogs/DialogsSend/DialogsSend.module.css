@@ -1,0 +1,20 @@
+.headInput{
+    display: block;
+}
+.btn{
+    display: block;
+    max-width: 150px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    background-color: coral;
+    border: none;
+    border-radius: 5px;
+    align-self: center;
+}
+.dialogsSend{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 50px;
+    grid-area: dialogsSend;
+}

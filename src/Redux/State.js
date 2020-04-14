@@ -4,8 +4,8 @@ let State = {
       { id: '1', text: 'Hello', likeCount: '12' },
       { id: '2', text: 'world', likeCount: '2' },
       { id: '3', text: 'That is', likeCount: '4' },
-      { id: '4', text: 'nuts!', likeCount: '7' },
     ],
+    newPostText: 'Hello bro'
   },
   dialogsPage: {
     dialogsData: [
@@ -38,6 +38,29 @@ let State = {
       {name: 'Eldar', id: '4'},
     ]
   }
+}
+
+export const addPost = () => {
+  let newPost = {
+    id: 5,
+    text: State.profilePage.newPostText,
+    likeCount: 0
+  }
+
+  State.profilePage.postsData.push(newPost)
+  State.profilePage.newPostText = ''
+  rerenderTree(State)
+}
+
+export const updateNewPostText = (newText) => {
+  State.profilePage.newPostText = newText
+  rerenderTree(State)
+}
+
+let rerenderTree = () => {}
+
+export const subscribe = (observer) => {
+  rerenderTree = observer
 }
 
 export default State
