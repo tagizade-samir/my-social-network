@@ -10,7 +10,9 @@ const Dialogs = (props) => {
         <div className={Classes.dialogsWrapper}>
             <DialogList dialogs={props.state.dialogsData} />
             <DialogMessage messages={props.state.messageData} />
-            <DialogsSend />
+            <DialogsSend 
+                newMsg={props.state.newMessage}
+                dispatch={props.dispatch} />
         </div>
     )
 }

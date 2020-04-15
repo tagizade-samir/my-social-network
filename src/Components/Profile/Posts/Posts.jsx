@@ -8,8 +8,7 @@ const Posts = (props) => {
         <div className={Classes.posts}>
           <PostAdd
             newPostText={props.posts.newPostText}
-            addPost={props.addPost}
-            updateNewPostText={props.updateNewPostText} />
+            dispatch={props.dispatch} />
           <MyPosts posts={props.posts.postsData} />
         </div>
     )

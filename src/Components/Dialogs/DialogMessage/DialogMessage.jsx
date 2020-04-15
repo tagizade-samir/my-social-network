@@ -3,6 +3,7 @@ import Classes from './DialogMessage.module.css';
 import Message from './Message/Message.jsx'
 
 const DialogMessage = (props) => {
+  debugger;
 
   let messageElems = props.messages
     .map((message) => <Message text={message.text} /> )
