@@ -1,19 +1,17 @@
 import Classes from './DialogsSend.module.css'
 import React from 'react'
-import {addNewMsgActionCreator, updateMsgAction} from '../../../Redux/State'
 
-
-const dialogsSend = (props) => {
+const DialogsSend = (props) => {
     
     let newMsgOnChange = (e) => {
         let text = e.target.value
-        props.dispatch(updateMsgAction(text))
+        props.updateNewMsgText(text)
     }
 
     let addMessage = () => {
-        props.dispatch(addNewMsgActionCreator())
+        props.addNewMessage()
     }
-
+    
     return (
         <div className={Classes.dialogsSend}>
             <textarea
@@ -25,4 +23,4 @@ const dialogsSend = (props) => {
     )
 }
 
-export default dialogsSend
+export default DialogsSend

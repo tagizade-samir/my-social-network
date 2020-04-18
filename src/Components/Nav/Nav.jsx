@@ -1,13 +1,13 @@
 import React from 'react';
 import Classes from './Nav.module.css'
-import Menu from './Menu/Menu.jsx'
-import Friends from './Friends/Friends.jsx'
+import MenuContainer from './Menu/MenuContainer'
+import FriendsContainer from './Friends/FriendsContainer.jsx'
 
-const Nav = (props) => {
+const Nav = () => {
     return(
         <nav className={Classes.menu}>
-          <Menu navItems={props.state.navItems} />
-          <Friends state={props.state.navFriends} />
+          <MenuContainer />
+          <FriendsContainer />
         </nav>
     )
 }

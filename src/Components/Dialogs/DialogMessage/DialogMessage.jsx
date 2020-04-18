@@ -1,17 +1,10 @@
 import React from 'react'
 import Classes from './DialogMessage.module.css';
-import Message from './Message/Message.jsx'
 
 const DialogMessage = (props) => {
-  debugger;
-
-  let messageElems = props.messages
-    .map((message) => <Message text={message.text} /> )
 
   return (
-    <div className={Classes.dialogMessage}>
-      {messageElems}
-    </div>
+    <div className={Classes.dialogMessage}>{props.messageElems}</div>
   )
 }
 

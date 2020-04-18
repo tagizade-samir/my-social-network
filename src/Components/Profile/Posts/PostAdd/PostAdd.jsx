@@ -1,17 +1,15 @@
 import React from 'react';
 import Classes from './PostAdd.module.css'
-import {addPostActioncreator, updateNewPosrTextAction} from '../../../../Redux/State'
 
 const PostAdd = (props) => {
-  let newPostElement = React.createRef();
 
   let addP = () => {
-    props.dispatch(addPostActioncreator())
+    props.addP()
   }
 
-  let postAddOnChange = () => {
-    let text = newPostElement.current.value
-    props.dispatch(updateNewPosrTextAction(text))
+  let postAddOnChange = (e) => {
+    let text = e.target.value
+    props.postAddOnChange(text)
   }
 
   return (
@@ -22,7 +20,6 @@ const PostAdd = (props) => {
       {/*<form>*/}
       <div className={Classes.headInputWrap}>
         <textarea
-          ref={newPostElement}
           onChange={postAddOnChange}
           className={Classes.headInput}
           value={props.newPostText} />

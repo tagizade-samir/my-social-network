@@ -1,18 +1,16 @@
 import React from 'react'
 import Classes from './Dialogs.module.css';
-import DialogList from './DialogList/DialogList.jsx'
-import DialogMessage from './DialogMessage/DialogMessage.jsx'
-import DialogsSend from './DialogsSend/DialogsSend.jsx'
+import DialogListContainer from './DialogList/DialogListContainer.jsx'
+import DialogMessageContainer from './DialogMessage/DialogMessageContainer.jsx'
+import DialogsSendContainer from './DialogsSend/DialogsSendContainer';
 
-const Dialogs = (props) => {
+const Dialogs = () => {
 
     return(
         <div className={Classes.dialogsWrapper}>
-            <DialogList dialogs={props.state.dialogsData} />
-            <DialogMessage messages={props.state.messageData} />
-            <DialogsSend 
-                newMsg={props.state.newMessage}
-                dispatch={props.dispatch} />
+            <DialogListContainer />
+            <DialogMessageContainer />
+            <DialogsSendContainer />
         </div>
     )
 }
