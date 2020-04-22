@@ -1,6 +1,9 @@
 .header{
     grid-area: header;
     background-color: darkcyan;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .back{
   
@@ -8,4 +11,14 @@
   .img{
     max-width: 50px;
     margin: 10px 10px;
+  }
+  .loginBlock{
+
+  }
+  .loginBtn{
+    color: white;
+    background-color: coral;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
   }

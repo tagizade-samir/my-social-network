@@ -2,16 +2,25 @@ import React from 'react';
 import Classes from './ProfileInfo.module.css'
 import InfoDesc from './InfoDesc/InfoDesc.jsx'
 import Back from './Back/Back.jsx'
+import Preloader from '../../Common/Preloader/Preloader'
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+  if (!props.profile) {
+    return <Preloader />
+  }
+
   return (
     <div>
       <Back />
       <div className={Classes.info}>
         <div className={Classes.infoImgWrap}>
-          <img className={Classes.infoImg} src='https://images.wallpaperscraft.ru/image/oblako_edinorog_raduzhnyj_139591_800x600.jpg'></img>
+          <img className={Classes.infoImg} src={props.profile.photos.large}></img>
         </div>
-        <InfoDesc birthDate='19.10.1995' city='Baku' education='DevEducation' website='template.com' />
+        <InfoDesc
+          fullName={props.profile.fullName}
+          aboutMe={props.profile.aboutMe}
+          jobDesc={props.profile.lookingForAJobDescription}
+          website='template.com' />
       </div>
     </div>
   )

@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/Header/Header';
+import HeaderContainer from './Components/Header/HeaderContainer';
 import Nav from './Components/Nav/Nav';
-import Profile from './Components/Profile/Profile';
+import ProfileContainer from './Components/Profile/ProfileContainer';
 import Dialogs from './Components/Dialogs/Dialogs.jsx'
 import News from './Components/News/News.jsx'
 import Music from './Components/Music/Music.jsx'
@@ -17,11 +17,11 @@ const App = (props) => {
       <body>
         <div className='wrapper'>
           <div className='wrap-in'>
-            <Header />
+            <HeaderContainer />
             <Nav />
             <div className='wrapContent'>
-              <Route path='/profile' render={() => 
-                <Profile />} />
+              <Route path='/profile/:userId?' render={() => 
+                <ProfileContainer />} />
               <Route path='/dialogs' render={() => 
                 <Dialogs />} />
               <Route path='/news' render={() => <News />} />
