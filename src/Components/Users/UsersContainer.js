@@ -1,35 +1,24 @@
 import { connect } from 'react-redux'
-import usersPageReducer, { follow, setIsFetching, unfollow, setUsers, setCurrentPage, setTotalUsersCount } from '../../Redux/usersPageReducer'
+import usersPageReducer, { 
+    followSuccess,
+    unfollowSuccess,
+    setCurrentPage,
+    toggleFollowingProgress
+} from '../../Redux/usersPageReducer'
 import Users from './Users'
 import React from 'react'
 import * as axios from 'axios'
 import Preloader from '../Common/Preloader/Preloader'
+import { usersAPI } from '../../API/Api'
+import {getUsers} from '../../Redux/usersPageReducer'
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.setIsFetching(true)
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-                withCredentials: true
-            })
-            .then(response => {
-                this.props.setIsFetching(false)
-                this.props.setUsers(response.data.items)
-                this.props.setTotalUsersCount(response.data.totalCount)
-            })
+        this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChange = (page) => {
-        this.props.setCurrentPage(page)
-        this.props.setIsFetching(true)
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`, {
-                withCredentials: true
-            })
-            .then(response => {
-                this.props.setIsFetching(false)
-                this.props.setUsers(response.data.items)
-            })
+        this.props.getUsers(page, this.props.pageSize)
     }
 
     render() {
@@ -42,8 +31,10 @@ class UsersContainer extends React.Component {
                     currentPage={this.props.currentPage}
                     onPageChange={this.onPageChange}
                     users={this.props.users}
-                    unfollow={this.props.unfollow}
-                    follow={this.props.follow} />
+                    unfollowSuccess={this.props.unfollowSuccess}
+                    followSuccess={this.props.followSuccess}
+                    toggleFollowingProgress={this.props.toggleFollowingProgress}
+                    followingInProgress={this.props.followingInProgress} />
             </React.Fragment>
         )
     }
@@ -56,15 +47,15 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
     }
 }
 
 export default connect(mapStateToProps, {
-    follow,
-    unfollow,
-    setUsers,
+    followSuccess,
+    unfollowSuccess,
     setCurrentPage,
-    setTotalUsersCount,
-    setIsFetching 
+    toggleFollowingProgress,
+    getUsers,
 })(UsersContainer)

@@ -3,6 +3,7 @@ import Classes from './Users.module.css'
 import userPhoto from '../../assets/img/user.png'
 import { NavLink } from 'react-router-dom';
 import * as axios from 'axios'
+import { followAPI } from '../../API/Api'
 
 
 const Users = (props) => {
@@ -17,69 +18,40 @@ const Users = (props) => {
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {pages.map(page => {
           return (
-            <span
-              onClick={() => { props.onPageChange(page) }}
+            <span onClick={() => { props.onPageChange(page) }}
               className={props.currentPage === page && Classes.selectedPage}>
               {page}
             </span>
           )
         })}
       </div>
-      {
-        props.users.map(user => {
-          return (
-            <div key={user.id} className={Classes.container}>
-              <span>
-                <div>
-                  <NavLink to={'/profile/' + user.id}>
-                    <img className={Classes.userPhoto} src={user.photos.small != null ? user.photos.small : userPhoto} />
-                  </NavLink>
-                </div>
-                <div>
-                  {user.followed
-                    ? <button onClick={() => {
-                      axios
-                      .delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
-                        withCredentials: true,
-                        headers: {
-                          'API-KEY' : 'd866ea22-117a-4f1c-b91e-45e0c6e7f648'
-                        }
-                      })
-                      .then(response => {
-                          if (response.data.resultCode == 0) {
-                            props.unfollow(user.id)
-                          }
-                      })
-                    }}>Unfollow</button>
-                    : <button onClick={() => {
-                      axios
-                      .post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
-                        withCredentials: true,
-                        headers: {
-                          'API-KEY' : 'd866ea22-117a-4f1c-b91e-45e0c6e7f648'
-                        }
-                      })
-                      .then(response => {
-                          if (response.data.resultCode == 0) {
-                            props.follow(user.id)
-                          }
-                      })
-                    }}>Follow</button>}
-                </div>
-              </span>
-              <span>
-                <span>
-                  <div>{user.name}</div>
-                  <div>{user.status}</div>
-                </span>
-                <span>
-                  <div>Azerbaijan, Baku</div>
-                </span>
-              </span>
+      {props.users.map(user => {
+        return (
+          <div key={user.id} className={Classes.container}>
+            <div>
+              <NavLink to={'/profile/' + user.id}>
+                <img
+                  className={Classes.userPhoto}
+                  src={user.photos.small != null ? user.photos.small : userPhoto} />
+              </NavLink>
             </div>
-          )
-        })
-      }
+            <div>
+              {user.followed ?
+                <button
+                  disabled={props.followingInProgress.some(id => id == user.id)}
+                  onClick={() => { props.unfollowSuccess(user.id) }}>Unfollow</button>
+                : <button
+                  disabled={props.followingInProgress.some(id => id == user.id)}
+                  onClick={() => { props.followSuccess(user.id) }}>Follow</button>}
+            </div>
+            <div>
+              <p>{user.name}</p>
+              <p>{user.status}</p>
+              <p>Azerbaijan, Baku</p>
+            </div>
+          </div>
+        )
+      })}
     </div>
   )
 }
