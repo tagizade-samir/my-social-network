@@ -1,15 +1,38 @@
 import React from 'react';
 import Classes from './PostAdd.module.css'
+import { reduxForm, Field } from 'redux-form'
+
+const PostAddForm = (props) => {
+  return(
+    <form onSubmit={props.handleSubmit} >
+      <div className={Classes.headInputWrap}>
+        <Field
+          name={'postAdd'}
+          component={'textarea'}
+          className={Classes.headInput} />
+        <button className={Classes.btn}>Send</button>
+      </div>
+      </form>
+  )
+}
+
+const PostAddReduxForm = reduxForm({
+  form: 'postAdd'
+})(PostAddForm)
 
 const PostAdd = (props) => {
 
-  let addP = () => {
-    props.addP()
-  }
+  // let addP = () => {
+  //   props.addP()
+  // }
 
-  let postAddOnChange = (e) => {
-    let text = e.target.value
-    props.postAddOnChange(text)
+  // let postAddOnChange = (e) => {
+  //   let text = e.target.value
+  //   props.postAddOnChange(text)
+  // }
+
+  const addNewPost = (formData) => {
+    props.addP(formData.postAdd)
   }
 
   return (
@@ -17,15 +40,7 @@ const PostAdd = (props) => {
       <div className={Classes.headTitle}>
         My posts
         </div>
-      {/*<form>*/}
-      <div className={Classes.headInputWrap}>
-        <textarea
-          onChange={postAddOnChange}
-          className={Classes.headInput}
-          value={props.newPostText} />
-        <button onClick={addP} className={Classes.btn}>Send</button>
-      </div>
-      {/*</form>*/}
+      <PostAddReduxForm onSubmit={addNewPost} />
     </div>
   )
 }

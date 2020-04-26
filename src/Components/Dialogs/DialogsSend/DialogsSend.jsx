@@ -1,25 +1,43 @@
 import Classes from './DialogsSend.module.css'
 import React from 'react'
+import { reduxForm, Field } from 'redux-form'
+
+const DialogSendForm = (props) => {
+    return(
+        <form onSubmit={props.handleSubmit} >
+        <Field
+            component={'textarea'}
+            name={'newMessageBody'}
+            placeholder={'Enter your message'}
+            className={Classes.headInput} />
+        <button className={Classes.btn}>Send</button>
+        </form>
+    )
+}
+
+const AddMessageFormRedux = reduxForm({
+    form: 'dialogAddMessage'
+})(DialogSendForm)
 
 const DialogsSend = (props) => {
     
-    let newMsgOnChange = (e) => {
-        let text = e.target.value
-        props.updateNewMsgText(text)
-    }
+    // let newMsgOnChange = (e) => {
+    //     let text = e.target.value
+    //     props.updateNewMsgText(text)
+    // }
 
-    let addMessage = () => {
-        props.addNewMessage()
+    // let addMessage = () => {
+    //     props.addNewMessage()
+    // }
+
+    const sendMessage = (formData) => {
+        props.addNewMessage(formData.newMessageBody)
     }
     
     return (
         <div className={Classes.dialogsSend}>
-            <textarea
-                className={Classes.headInput}
-                value={props.newMsg}
-                onChange={newMsgOnChange}></textarea>
-            <button onClick={addMessage} className={Classes.btn}>Send</button>
-        </div>
+        <AddMessageFormRedux onSubmit={sendMessage} />
+            </div>
     )
 }
 

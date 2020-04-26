@@ -17,19 +17,17 @@ let initialState = {
     { id: '3', text: 'You are doing great' },
     { id: '4', text: 'Thanks, that really means a lot' },
   ],
-  newMessage: 'Hi Hi Hi'
 }
 
 const dialogsPageReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case ADD_NEW_MESSAGE:
-      let newMsg = {id: 5, text: state.newMessage}
+      let newMsg = {id: 5, text: action.text}
 
       return {
         ...state,
         messageData: [...state.messageData, newMsg],
-        newMessage: ''
       }
     case UPDATE_NEW_MSG:
       return {
@@ -41,10 +39,10 @@ const dialogsPageReducer = (state = initialState, action) => {
   }
 }
 
-export const updateMsgAction = (text) => ({
-  type: UPDATE_NEW_MSG,
-  msg: text
-})
-export const addNewMsgActionCreator = () => ({ type: ADD_NEW_MESSAGE })
+// export const updateMsgAction = (text) => ({
+//   type: UPDATE_NEW_MSG,
+//   msg: text
+// })
+export const addNewMsgActionCreator = (text) => ({ type: ADD_NEW_MESSAGE, text })
 
 export default dialogsPageReducer
