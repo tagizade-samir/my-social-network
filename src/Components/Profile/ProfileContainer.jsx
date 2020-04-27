@@ -7,12 +7,14 @@ import {withRouter, Redirect} from 'react-router-dom'
 import {profileAPI} from '../../API/Api'
 import { withAuthRedirect } from '../../Hoc/WithAuthRedirect';
 import { compose } from 'redux';
-
 class ProfileContainer extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId
     if (!userId) {
-      userId = 7416
+      userId = this.props.userId
+      if (!userId) {
+        this.props.history.push('/login')
+      }
     }
     this.props.getUserProfileThunk(userId)
     this.props.getStatus(userId)
@@ -42,7 +44,9 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
-  status: state.profilePage.status
+  status: state.profilePage.status,
+  userId: state.auth.userId,
+  isAuth: state.auth.isAuth
 })
 
 // let WithUrlDataContainerComponent = withRouter(RedirectComponent)
@@ -50,6 +54,5 @@ let mapStateToProps = (state) => ({
 
 export default compose(
   connect(mapStateToProps, {getUserProfileThunk, getStatus, updateStatus}),
-  withRouter,
-  withAuthRedirect
+  withRouter
 )(ProfileContainer)

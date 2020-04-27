@@ -1,12 +1,17 @@
 import Classes from './DialogsSend.module.css'
 import React from 'react'
 import { reduxForm, Field } from 'redux-form'
+import { Textarea } from '../../Common/FormsControls/FormsControls'
+import { requiredField, maxLengthCreator } from '../../../Utils/Validators/Validators'
+
+const maxLength100 = maxLengthCreator(100)
 
 const DialogSendForm = (props) => {
     return(
         <form onSubmit={props.handleSubmit} >
         <Field
-            component={'textarea'}
+            component={Textarea}
+            validate={[requiredField, maxLength100]}
             name={'newMessageBody'}
             placeholder={'Enter your message'}
             className={Classes.headInput} />
