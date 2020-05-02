@@ -3,6 +3,7 @@ import Classes from './ProfileInfo.module.css'
 import InfoDesc from './InfoDesc/InfoDesc.jsx'
 import Preloader from '../../Common/Preloader/Preloader'
 import ProfileStatus from './ProfileStatus/ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks';
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -20,7 +21,7 @@ const ProfileInfo = (props) => {
           aboutMe={props.profile.aboutMe}
           jobDesc={props.profile.lookingForAJobDescription}
           website='template.com' />
-        <ProfileStatus
+        <ProfileStatusWithHooks
           status={props.status}
           updateStatus={props.updateStatus} />
       </div>
